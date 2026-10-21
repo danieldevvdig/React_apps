@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "./static/css/main.66ef9852.css",
-    "main.js": "./static/js/main.028f323c.js",
+    "main.css": "./static/css/main.6e3fb55f.css",
+    "main.js": "./static/js/main.2767c87c.js",
     "static/js/453.b6ef1eb3.chunk.js": "./static/js/453.b6ef1eb3.chunk.js",
     "static/media/Monogramme BMF doré aux lauriers.png": "./static/media/Monogramme BMF doré aux lauriers.a5a6dff7ba2d8cd0be31.png",
     "static/media/Gemini_Generated_Image_2vd7u02vd7u02vd7.jfif": "./static/media/Gemini_Generated_Image_2vd7u02vd7u02vd7.116be278a4390a140883.jfif",
     "index.html": "./index.html",
-    "main.66ef9852.css.map": "./static/css/main.66ef9852.css.map",
-    "main.028f323c.js.map": "./static/js/main.028f323c.js.map",
+    "main.6e3fb55f.css.map": "./static/css/main.6e3fb55f.css.map",
+    "main.2767c87c.js.map": "./static/js/main.2767c87c.js.map",
     "453.b6ef1eb3.chunk.js.map": "./static/js/453.b6ef1eb3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.66ef9852.css",
-    "static/js/main.028f323c.js"
+    "static/css/main.6e3fb55f.css",
+    "static/js/main.2767c87c.js"
   ]
 }
