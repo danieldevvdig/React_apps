@@ -12,32 +12,26 @@ jobs:
     runs-on: windows-latest
 
     env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL != '' && secrets.SONAR_HOST_URL || 'https://sonarcloud.io' }}
+      SONAR_TOKEN: sqp_5c7478381902ddfed4a477faf844fa0934d070ca
+      SONAR_HOST_URL: http://localhost:9000
 
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
 
       - name: Validate Sonar configuration
         shell: pwsh
         run: |
-          if ([string]::IsNullOrWhiteSpace("${{ secrets.SONAR_TOKEN }}")) {
-            throw "Missing SONAR_TOKEN secret. Add your Sonar token in GitHub repository secrets."
+          if ([string]::IsNullOrWhiteSpace("$env:SONAR_TOKEN")) {
+            throw "Missing SONAR_TOKEN."
           }
-
-          if ([string]::IsNullOrWhiteSpace("${{ secrets.SONAR_HOST_URL }}")) {
-            Write-Host "SONAR_HOST_URL secret is missing; falling back to https://sonarcloud.io."
+          if ([string]::IsNullOrWhiteSpace("$env:SONAR_HOST_URL")) {
+            throw "Missing SONAR_HOST_URL."
           }
+          Write-Host "Using SonarQube URL: $env:SONAR_HOST_URL"
 
-      - uses: SonarSource/sonarqube-scan-action@7006c4492b2e0ee0f816d36501671557c97f5995 # v8.1.0
+      - uses: SonarSource/sonarqube-scan-action@v8
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL != '' && secrets.SONAR_HOST_URL || 'https://sonarcloud.io' }}
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - uses: SonarSource/sonarqube-quality-gate-action@cf038b0e0cdecfa9e56c198bbb7d21d751d62c3b # v1.2.0
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: sqp_5c7478381902ddfed4a477faf844fa0934d070ca
+          SONAR_HOST_URL: http://localhost:9000
