@@ -12,7 +12,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      SONAR_TOKEN: sqp_5c7478381902ddfed4a477faf844fa0934d070ca
+      SONAR_TOKEN: sqp_d7f375c711b093e59fa14789f1c854fd5f237838
       SONAR_HOST_URL: http://localhost:9000
 
     steps:
